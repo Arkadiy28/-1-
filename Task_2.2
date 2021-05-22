@@ -1,15 +1,11 @@
 import random
 
 
-i = 0 + 1
-
 deposit = 10000
 
 win = 1000
 
 log_sist = []
-log_user = []
-log_deposit = []
 
 print('Добро пожаловать в виртуальное казино')
 print('Ваш депозит составляет', deposit, 'единиц')
@@ -17,8 +13,9 @@ print('Ваш депозит составляет', deposit, 'единиц')
 while deposit != 0:
     try:
         number = int(input('Ведите число от 2 до 12: '))
-    except Exception:
-        number = int(input('Ведите число от 2 до 12: '))
+    except:
+        print('Вы ввели не корректное число попробуйте ещё раз')
+        continue
 
     cube = random.randint(2, 12)
 
@@ -31,16 +28,16 @@ while deposit != 0:
             print('Система загадала число {}, вы ввели число {}'.format(cube, number))
             print('Вы выйграли {} ! У вас на счету стало: {} единиц'.format(win, deposit))
             log_sist.append(cube)
-            log_user.append(number)
-            log_deposit.append(deposit)
-            
+            log_sist.append(number)
+            log_sist.append(deposit)
+
         else:
             deposit = deposit - win
             print('Система загадала число {}, вы ввели число {}'.format(cube, number))
             print('Вы проиграли {} ! У вас на счету осталось: {} единиц'.format(win, deposit))
             log_sist.append(cube)
-            log_user.append(number)
-            log_deposit.append(deposit)
+            log_sist.append(number)
+            log_sist.append(deposit)
 
 print('')
 
@@ -50,6 +47,12 @@ print('')
 
 print('Журнал событий')
 
-for a, b, c in zip(log_sist, log_user, log_deposit):
+i = 1
+
+sist = log_sist[::3]
+user = log_sist[1::3]
+deposits = log_sist[2::3]
+
+for a, b, c in zip(sist, user, deposits):
     print('Попытка №{}, Игра загадала {}, вы ввели число {}, Осталось у вас {} единиц'.format(i, a, b, c))
     i += 1
