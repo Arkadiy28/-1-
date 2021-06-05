@@ -20,6 +20,7 @@ def fukciya(zhanr):
             films.setdefault(k)
         elif v.get('Genre') == zhanr:
             ratings.append(float(v.get('Rating')))
+            films.setdefault(k)
 
         for t, l in v.items():
             if l == zhanr:
@@ -31,7 +32,7 @@ def fukciya(zhanr):
         pickle.dump(f'{films}', saplain)
 
 
-def zanry():
+def zhanry():
     zhanr = []
     for k, v in shows.items():
         for t, l in v.items():
@@ -42,7 +43,5 @@ def zanry():
     return (set(zhanr))
 
 
-
-
-for i in zanry():
+for i in zhanry():
     fukciya(i)
