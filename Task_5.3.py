@@ -1,7 +1,12 @@
-def quantity(slovo, fails):
-    fail = open(fails)
-    a = fail.read()
-    print(a.count(slovo))
+def quantity(slovo, fail):
+    k = 0
+    fails = open(fail)
+    a = fails.read()
+    b = a.split()
+    for i in b:
+        if i == slovo:
+            k += 1
+    print(f'Кол-во повторов слова {slovo}: {k}')
 
 def stroki(slovo, fails):
     with open(fails) as file:
