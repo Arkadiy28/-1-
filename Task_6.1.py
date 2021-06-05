@@ -6,23 +6,17 @@ shows = {'Секретные материалы': {'Жанр': 'фантасти
 
 
 def rating(slovar):
-    qq = []
     asd = []
     for k, v in slovar.items():
         for t, l in v.items():
             if t == 'Рейтинг':
                 asd.append(float(l))
             elif t == 'Rating':
-                qq.append(float(l))
+                asd.append(float(l))
             else:
                 pass
-    ee = (((sum(asd)) + (sum(qq))) / ((len(asd)) + (len(qq))))
-    print(ee)
-
-
+    ee = ((sum(asd)) / ((len(asd))))
+    print(round(ee, 2))
 
 
 rating(shows)
-
-
-
