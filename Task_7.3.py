@@ -12,8 +12,11 @@ def selection_sort(input_list):
     return time.time() - start_time # время выполнения в секундах
 
 
-
+f = []
 b = [1000, 2000, 5000, 10000]
 for i in b:
-    a = list(range(1, i))
-    print(selection_sort(a))
+        a = list(range(i))
+        f.append(i)
+        f.append(selection_sort(a))
+
+print(f)
