@@ -12,9 +12,9 @@ mas = {}
 
 for rr in soup.find_all('div', class_='tag_count_button'):
     name = rr.find('span', class_='tag_name').text
-    tags = None
+    rating = None
     for i in rr.find_all('span', class_='tag_count tab_filter_control_count'):
-        tags = i.text
-    mas[name] = tags
+        rating = i.text
+    mas[name] = rating
 
 print(mas)
