@@ -1,17 +1,18 @@
 import re
 
 
-def poisk(spicok, slovo):
+def poisk(spicok):
     for i in spicok:
         b = i[0]
 
-        res = re.search(slovo, b)
+        res = re.search('Кит|Рыбы|Пегас', b)
         if res:
             print(res[0], '-' * 10, b)
 
+
 fil = []
 
-with open('lesson09_closest_galaxies.txt', encoding = 'utf-8') as file:
+with open('lesson09_closest_galaxies.txt', encoding='utf-8') as file:
     ee = file.read().split('\n')
     for i in ee:
         fil.append(i.split(','))
@@ -30,10 +31,5 @@ for i in fil:
     if res:
         print(b)
 
-
-poisk(fil, 'Рыбы')
-
-poisk(fil, 'Пегас')
-
-poisk(fil, 'Кит')
-
+# Выборка Кит, Рыбы, Пегас
+poisk(fil)
